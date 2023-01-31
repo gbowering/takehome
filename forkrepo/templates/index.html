@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fork GitHub Repository</title>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Fork GitHub Repository</h1>
+
+        {% if is_forked %}
+        <strong>Repo fork successful!</strong>
+        {% else %}
+
+        <h3>This service will fork a repo to a GitHub user account</h3>
+        <p>Enter the repo you would like to fork and the access token to your Github account</p>
+        <i>To create an access token login to GitHub and go to Settings>Developer Settings>Personal access tokens</i>
+
+        <form id="user_form" method="post" action="/" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ repo_form.as_p }}
+            <input type="submit" name="submit" value="Fork Repository" />
+        </form>
+        {% endif %}
+    </body>
+</html>

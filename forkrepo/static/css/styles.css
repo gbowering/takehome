@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+#id_repository {
+    width: 400px;
+}
+#id_access_token {
+    width: 400px;
+}
